@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}
+    Register
+{% endblock %}    
+{% block body %}
+    <div class="container">
+        <h1>Register</h1>
+    </div>
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            {{form.username.label_tag}}
+            {{form.username}}
+            {% for error in form.username.errors %}
+            <br>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>{{error}}</strong>
+            </div>
+            {% endfor %}
+            <br>
+            {{form.email.label_tag}}
+            {{form.email}}
+            {% for error in form.email.errors %}
+            <br>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>{{error}}</strong>
+            </div>
+            {% endfor %}
+            <br>
+            {{form.password.label_tag}}
+            {{form.password}}
+            <br>
+            {{form.password2.label_tag}}
+            {{form.password2}}
+            {% for error in form.non_field_errors %}
+            <br>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>{{error}}</strong>
+            </div>
+            {% endfor %}
+            <br>
+            <button type="submit" class="btn btn-primary">Register</button>
+            <br><br>
+            <div>
+                <p>Already Registered? <a href="/">Login</a></p>
+            </div>
+        </form>
+    </div>
+{% endblock %}

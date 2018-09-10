@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}
+    Add
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <h1>Add Question</h1>
+    </div>
+    <div class="container">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.quescode.label_tag }}
+            {{ form.quescode }}
+            <br>
+            {{ form.timelimit.label_tag }}
+            {{ form.timelimit }}
+            <br>
+            {{ form.ip_file.label_tag }}
+            {{ form.ip_file }}
+            <br>
+            {{ form.op_file.label_tag }}
+            {{ form.op_file }}
+            
+            {% for error in form.quescode.errors %}
+            <br>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>{{error}}</strong>
+            </div>
+            {% endfor %}
+            
+            {% for error in form.ip_file.errors %}
+            <br>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>{{error}}</strong>
+            </div>
+            {% endfor %}
+            
+            {% for error in form.op_file.errors %}
+            <br>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>{{error}}</strong>
+            </div>
+            {% endfor %}
+            
+            <br>
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+        <br>
+        <p>Return <a href="/judge">Home.</a></p>
+    </div>
+{% endblock %}

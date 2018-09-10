@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}
+    Judge Status
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <h1>Contest Status:</h1>
+    </div>
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Question Code</th>
+                    <th>Submission Time</th>
+                    <th>Result</th>
+                    <th>Time</th>
+                    <th>Output File</th>
+                    <th>Error File</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in alldata %}
+                <tr>
+                    <td>{{data.username}}</td>
+                    <td>{{data.quesid}}</td>
+                    <td>{{data.submissiontime}}</td>
+                    <td>{{data.result}}</td>
+                    <td>{{data.time}}</td>
+                    <td><a href="{{data.op_file.url}}" target="_blank">View</a></td>
+                    <td><a href="{{data.error_file.url}}" target="_blank">View</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br><br>
+        <p>Return <a href="/judge">Home.</a></p>
+    </div>
+{% endblock %}

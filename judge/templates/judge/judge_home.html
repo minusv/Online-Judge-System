@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}
+    Judge
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <h1>Welcome {{name}}.</h1>
+    </div>
+    <div class="container">
+        <p><a href="/question/add">Add Question</a></p>
+        <p><a href="/question/view">View / Modify Questions</a></p>
+        <p><a href="/test/judgestatus">View Judge Status</a></p>
+        <p><a href="/logout">Logout</a></p>
+    </div>
+{% endblock %}

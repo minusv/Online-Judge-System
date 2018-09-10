@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}
+    Edit
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <h1>Edit Question</h1>
+    </div>
+    <div class="container">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {{ form.timelimit.label_tag }}
+            {{ form.timelimit }}
+            <br>
+            {{ form.ip_file.label_tag }}
+            {{ form.ip_file }}
+            <br>
+            {{ form.op_file.label_tag }}
+            {{ form.op_file }}
+            <br>
+            {% for error in form.ip_file.errors %}
+            <br>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>{{error}}</strong>
+            </div>
+            {% endfor %}
+            
+            {% for error in form.op_file.errors %}
+            <br>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>{{error}}</strong>
+            </div>
+            {% endfor %}
+            
+            <br>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+        <br>
+        <p>Return <a href="/test">Home.</a></p>
+    </div>
+{% endblock %}

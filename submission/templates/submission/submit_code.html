@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}
+    Submit
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <h1>Submit</h1>
+    </div>
+    <div class="container">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form.quesid.label_tag}}
+            {{form.quesid}}
+            <br>
+            {{form.language.label_tag}}
+            {{form.language}}
+            <br>
+            {{form.source_code.label_tag}}
+            {{form.source_code}}
+            <br>
+            {% for error in form.source_code.errors %}
+            <br>
+            <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>{{error}}</strong>
+            </div>
+            {% endfor %}
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br><br>
+            <p>Return <a href="/contest">Home.</a></p>
+        </form>
+    </div>
+{% endblock %}

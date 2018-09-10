@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}
+    Login
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <h1>Login</h1>
+    </div>
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <button type="submit" class="btn btn-primary">Login</button>
+            <br><br>
+            {% if error %}
+            <div class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Invalid Credentials.</strong> Please login again.
+            </div>
+            {% endif %}
+            <div>
+                <p>New User? <a href="/register">Register</a></p>
+            </div>
+        </form>
+    </div>
+{% endblock %}
