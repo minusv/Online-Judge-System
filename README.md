@@ -23,7 +23,7 @@ Being a Python Web framework, Django requires Python. See [What Python version c
 ### Running System
 #### Clonning repository
 ```
-git clone https://github.com/minusv23/Online-Judge-System-.git
+git clone https://github.com/minusv/Online-Judge-System.git
 ```
 > Complete the following steps in the directory containing `manage.py`.
 #### Migrating database
